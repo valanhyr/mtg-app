@@ -1,0 +1,11 @@
+.input-container {
+  display: flex;
+  align-items: center;
+}
+
+.input-container mat-form-field {
+  margin-right: 10px; /* Adjust as needed */
+}
+.space {
+  flex: 1;
+}

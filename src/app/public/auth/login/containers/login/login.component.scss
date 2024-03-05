@@ -1,0 +1,28 @@
+.login {
+    /* Other styles */
+    border-radius: 20px;
+    position: fixed;
+    top: -100%; /* Initially, position it above the viewport */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20%;
+    min-width: 300px;
+    background-color: #f0f0f0; /* Example background color */
+    animation: slideDown 2s forwards; /* Apply the slideDown animation */
+  }
+  
+  @keyframes slideDown {
+    from {
+      top: -100%; /* Start position: above the viewport */
+    }
+    to {
+      top: 20%; /* End position: vertically centered */
+    }
+  }
+  .background-container {
+    background-image: url('../../../../../../assets/images/background.jpg'); /* Replace 'path/to/your/image.jpg' with the path to your image */
+    background-size: cover; /* Cover the entire element with the background image */
+    background-position: center; /* Center the background image */
+    width: 100vw; /* Full width of the viewport */
+    height: 100vh; /* Full height of the viewport */
+}

@@ -1,0 +1,39 @@
+<div class="card"> 
+  <form [formGroup]="heroForm">
+    <mat-form-field appearance="outline" class="full-width-imput">
+      <mat-label>Nombre</mat-label>
+      <input
+        matInput
+        formControlName="name"
+        placeholder="Introduce el nombre del heroe"
+        [value]="heroForm.get('name')!.value | uppercase"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width-imput">
+      <mat-label>Tipo</mat-label>
+      <input
+        matInput
+        formControlName="type"
+        placeholder="Introduce el tipo de heroe"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width-imput">
+      <mat-label>Liga</mat-label>
+      <input
+        matInput
+        formControlName="league"
+        placeholder="Introduce la liga a la que pertenece"
+      />
+    </mat-form-field>
+
+    <mat-checkbox formControlName="active">Activo</mat-checkbox>
+    <div class="row">
+        <button mat-raised-button color="primary" (click)="saveHero()">
+          Guardar nuevo heroe
+        </button>
+
+    </div>
+  </form>
+</div>
