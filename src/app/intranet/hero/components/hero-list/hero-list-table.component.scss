@@ -4,8 +4,12 @@
 }
 
 .input-container mat-form-field {
-  margin-right: 10px; /* Adjust as needed */
+  margin-right: 10px;
 }
 .space {
   flex: 1;
+}
+::ng-deep  .mat-column-name {
+  max-width: 200px;
+  overflow: hidden;
 }

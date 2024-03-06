@@ -20,6 +20,7 @@ import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { AuxBarComponent } from './components/aux-bar/aux-bar.component';
 
 @NgModule({
@@ -34,6 +35,7 @@ import { AuxBarComponent } from './components/aux-bar/aux-bar.component';
     MatTableModule,
     MatCheckboxModule,
     MatProgressSpinnerModule,
+    MatPaginatorModule,
     MatIconModule,
     MatToolbarModule,
     FormsModule,
@@ -66,6 +68,7 @@ import { AuxBarComponent } from './components/aux-bar/aux-bar.component';
     MatCardModule,
     MatInputModule,
     MatButtonModule,
+    MatPaginatorModule,
     MatFormFieldModule,
     MatCheckboxModule,
     MatProgressSpinnerModule,

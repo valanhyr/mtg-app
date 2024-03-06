@@ -1,52 +1,57 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 import { Hero } from '../../../../core/models/hero.model';
 import { HeroService } from '../../../../core/services/hero.service';
-import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-hero-table',
   templateUrl: './hero-list-table.component.html',
-  styleUrl: './hero-list-table.component.scss',
+  styleUrls: ['./hero-list-table.component.scss'],
 })
-export class HeroListTableComponent implements OnInit {
+export class HeroListTableComponent implements OnInit, AfterViewInit {
+  displayedColumns: string[] = ['name', 'type', 'league', 'active', 'action'];
+  dataSource = new MatTableDataSource<Hero>();
   detailRoute = '/intranet/heroes/detail/';
   newHeroRoute = '/intranet/heroes/new/';
   heroes: Hero[] = [];
-  displayedColumns: string[] = ['name', 'type', 'league', 'active', 'action'];
-  dataSource: MatTableDataSource<Hero>;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
   constructor(
     private _heroService: HeroService,
     private router: Router,
     private toastr: ToastrService
-  ) {
-    this.dataSource = new MatTableDataSource<Hero>(this.heroes);
+  ) {}
+
+  ngOnInit() {
+    this.getHeroes();
   }
 
-  ngOnInit(): void {
-    this.getHeroes();
+  ngAfterViewInit(): void {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
   getHeroes() {
     this._heroService.getAllHeroes().subscribe((heroes: Hero[]) => {
-      this.heroes = heroes;
-      this.dataSource.data = this.heroes;
+      this.dataSource.data = heroes;
       console.log(heroes);
+      const length = heroes.length;
+      this.paginator.length = length;
     });
   }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    /*if (filterValue.length> 3){
-      this.dataSource.filter = filterValue.trim().toLowerCase();
-    }*/
   }
 
-  navigateToNewHero(){
+  navigateToNewHero() {
     this.router.navigate([this.newHeroRoute]);
   }
 
@@ -55,7 +60,7 @@ export class HeroListTableComponent implements OnInit {
   }
 
   deleteHero(heroId: string) {
-    const confirmDelete = window.confirm('?Estas seguro de eliminar el Heroe?');
+    const confirmDelete = window.confirm('¿Estas seguro de eliminar el Heroe?');
     if (confirmDelete) {
       this._heroService.deleteHero(heroId).subscribe(
         (response) => {

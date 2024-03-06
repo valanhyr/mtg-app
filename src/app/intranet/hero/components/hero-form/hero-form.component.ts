@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Hero } from '../../../../core/models/hero.model';
-import { UppercasePipe } from '../../../../core/shared/pipes/uppercase.pipe';
 import { HeroService } from '../../../../core/services/hero.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
@@ -39,9 +38,10 @@ export class HeroFormComponent implements OnInit {
 
   setInitialHeroValues(): void {
     if (this.initialData) {
+      const nameUpperCase = this.initialData.name.toUpperCase(); // Convertir el nombre a mayúsculas
       this.heroForm.patchValue({
         _id: this.initialData._id,
-        name: this.initialData.name,
+        name: nameUpperCase,
         type: this.initialData.type,
         league: this.initialData.league,
         active: this.initialData.active,
@@ -58,7 +58,9 @@ export class HeroFormComponent implements OnInit {
       this.editHero(formData);
     }
   }
-
+  navigateToList(): void{
+    this.router.navigate(['/intranet/heroes/list'])
+  }
   createHero(formData: Hero): void {
     this._heroService.createHero(formData).subscribe(
       (response) => {
@@ -66,6 +68,7 @@ export class HeroFormComponent implements OnInit {
           'El heroe ha sido creado correctamente.',
           'Heroe creado'
         );
+        this.navigateToList();
       },
       (error) => {
         this.toastr.error(
@@ -83,6 +86,7 @@ export class HeroFormComponent implements OnInit {
           'El heroe ha sido actualizado correctamente.',
           'Heroe actualizado'
         );
+        this.navigateToList();
       },
       (error) => {
         this.toastr.error(
