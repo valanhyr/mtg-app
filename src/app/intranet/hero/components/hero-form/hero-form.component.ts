@@ -38,10 +38,9 @@ export class HeroFormComponent implements OnInit {
 
   setInitialHeroValues(): void {
     if (this.initialData) {
-      const nameUpperCase = this.initialData.name.toUpperCase(); // Convertir el nombre a mayúsculas
       this.heroForm.patchValue({
         _id: this.initialData._id,
-        name: nameUpperCase,
+        name: this.initialData.name,
         type: this.initialData.type,
         league: this.initialData.league,
         active: this.initialData.active,

@@ -17,7 +17,6 @@ export class HeroListTableComponent implements OnInit, AfterViewInit {
   dataSource = new MatTableDataSource<Hero>();
   detailRoute = '/intranet/heroes/detail/';
   newHeroRoute = '/intranet/heroes/new/';
-  heroes: Hero[] = [];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -41,8 +40,7 @@ export class HeroListTableComponent implements OnInit, AfterViewInit {
     this._heroService.getAllHeroes().subscribe((heroes: Hero[]) => {
       this.dataSource.data = heroes;
       console.log(heroes);
-      const length = heroes.length;
-      this.paginator.length = length;
+      this.paginator.length = heroes.length;
     });
   }
 
@@ -62,22 +60,23 @@ export class HeroListTableComponent implements OnInit, AfterViewInit {
   deleteHero(heroId: string) {
     const confirmDelete = window.confirm('¿Estas seguro de eliminar el Heroe?');
     if (confirmDelete) {
-      this._heroService.deleteHero(heroId).subscribe(
-        (response) => {
+      this._heroService.deleteHero(heroId).subscribe({
+        next: () => {
           this.getHeroes();
           this.toastr.success(
             'El heroe se ha eliminado correctamente.',
             'Heroe eliminado'
           );
         },
-        (error) => {
+        error: () => {
           this.toastr.error(
             'Se ha producido un error al intentar eliminar el heroe.',
             'Error!'
           );
         }
-      );
+      });
+    } else {
+      console.log('Deletion canceled by user');
     }
   }
-  
 }
