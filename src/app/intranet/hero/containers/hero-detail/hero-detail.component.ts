@@ -1,42 +1,37 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { HeroService } from '../../../../core/services/hero.service';
 import { Hero } from '../../../../core/models/hero.model';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-hero-detail',
   templateUrl: './hero-detail.component.html',
+  styleUrl: './hero-detail.component.scss'
 })
 export class HeroDetailComponent implements OnInit {
-  heroForm: FormGroup;
-  
+  existingHeroData: Hero | null = null; 
+  heroId: string = "";
+
   constructor(
-    private _heroService: HeroService,
-    private formBuilder: FormBuilder
-    ) {
-      this.heroForm = this.formBuilder.group({
-        name: ['', Validators.required],
-        type: ['', Validators.required],
-        league: ['', Validators.required],
-        active: [false],
-      });
-    }
+    private route: ActivatedRoute,
+    private _heroService: HeroService
+  ) {
+    this.route.paramMap.subscribe(params => {
+      this.heroId = params.get('id')!;
+      console.log("id "+ this.heroId)
+      this.getHero(this.heroId);
+    });
+  }
 
   ngOnInit(): void {
-    this.getHero
+
   }
-  getHero(){
-    this._heroService.getHeroById('').subscribe(
-      hero => this.patchFormvalues(hero)
+
+  getHero(heroId: string): void {
+    this._heroService.getHeroById(heroId).subscribe(
+      hero => {
+        this.existingHeroData = hero;
+      }
     );
-  }
-  patchFormvalues(hero:Hero){
-    this.heroForm.patchValue({
-      name: hero.name,
-      type: hero.type,
-      league: hero.league,
-      active: hero.active,
-    });
   }
 }

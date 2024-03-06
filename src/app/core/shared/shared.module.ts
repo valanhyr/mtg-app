@@ -20,6 +20,7 @@ import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { AuxBarComponent } from './components/aux-bar/aux-bar.component';
 
 @NgModule({
   imports: [
@@ -49,13 +50,16 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     SpinerComponent, 
     UppercasePipe,
     CapitalizePipe,
-    NavbarComponent
+    NavbarComponent,
+    AuxBarComponent,
+    AuxBarComponent
   ],
   exports: [
     HttpClientModule,
     LoginBoxComponent,
     NavbarComponent,
     SpinerComponent,
+    AuxBarComponent,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,

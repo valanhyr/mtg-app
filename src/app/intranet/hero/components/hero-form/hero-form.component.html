@@ -1,5 +1,5 @@
 <div class="card"> 
-  <form [formGroup]="heroForm">
+  <form [formGroup]="heroForm" (ngSubmit)="submitForm()">
     <mat-form-field appearance="outline" class="full-width-imput">
       <mat-label>Nombre</mat-label>
       <input
@@ -30,10 +30,9 @@
 
     <mat-checkbox formControlName="active">Activo</mat-checkbox>
     <div class="row">
-        <button mat-raised-button color="primary" (click)="saveHero()">
-          Guardar nuevo heroe
-        </button>
-
+      <button mat-raised-button color="primary" type="submit">
+        {{ mode === 'add' ? 'Guardar nuevo heroe' : 'Actualizar heroe' }}
+      </button>
     </div>
   </form>
 </div>

@@ -1,4 +1,4 @@
 export const environment = {
     production: false,
-    endpoint: 'http://localhost:3001/'
+    endpoint: 'https://super-hero-api.azurewebsites.net/'
   };

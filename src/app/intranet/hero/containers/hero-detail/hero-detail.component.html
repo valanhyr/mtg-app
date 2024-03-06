@@ -1,1 +1,9 @@
-<h3>hero-detail</h3>
+<app-aux-bar></app-aux-bar>
+<div class="container">
+    <div class="mat-elevation-z8 card">
+        <div *ngIf="existingHeroData">
+            <app-hero-form [initialData]="existingHeroData" [mode]="'edit'"></app-hero-form>
+          </div>
+    </div>
+  </div>
+  
