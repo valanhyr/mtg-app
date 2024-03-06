@@ -3,6 +3,17 @@
   justify-content: center;
 }
 .card {
+  background-color: aliceblue;
   max-width: 50%;
+  max-height: 50%;
   padding: 20px;
+  margin-top: 20px;
+  border-radius: 20px;
+}
+.background-container {
+  background-image: url("../../../../../assets/images/new-background.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
 }
