@@ -16,6 +16,7 @@ export class AuthService {
   login(user: User): Observable<any> {
     return this.http.post<string>(`${this.apiUrl}/login`, user);
   }
+  //TODO
   /*login(credentials: { email: string, password: string }): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/login`, credentials)
       .pipe(

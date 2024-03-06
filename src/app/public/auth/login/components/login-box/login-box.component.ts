@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login-box',
   templateUrl: './login-box.component.html',
-  styleUrls: ['./login-box.component.scss']
+  styleUrls: ['./login-box.component.scss'],
 })
 export class LoginBoxComponent implements OnInit {
   name: string = '';
@@ -28,14 +28,12 @@ export class LoginBoxComponent implements OnInit {
       return;
     }
 
-    // Create request body
     const user: User = {
       name: this.name,
       password: this.password,
       active: true,
     };
 
-    // Call API
     this.authService.login(user).subscribe(
       (response: any) => {
         const { token, userId } = response;

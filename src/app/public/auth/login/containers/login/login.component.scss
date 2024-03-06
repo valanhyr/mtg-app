@@ -1,28 +1,27 @@
 .login {
-    /* Other styles */
-    border-radius: 20px;
-    position: fixed;
-    top: -100%; /* Initially, position it above the viewport */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 20%;
-    min-width: 300px;
-    background-color: #f0f0f0; /* Example background color */
-    animation: slideDown 2s forwards; /* Apply the slideDown animation */
+  border-radius: 20px;
+  position: fixed;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 25%;
+  min-width: 300px;
+  background-color: #f0f0f0;
+  animation: slideDown 2s forwards;
+}
+
+@keyframes slideDown {
+  from {
+    top: -100%;
   }
-  
-  @keyframes slideDown {
-    from {
-      top: -100%; /* Start position: above the viewport */
-    }
-    to {
-      top: 10%; /* End position: vertically centered */
-    }
+  to {
+    top: 10%;
   }
-  .background-container {
-    background-image: url('../../../../../../assets/images/background.jpg'); /* Replace 'path/to/your/image.jpg' with the path to your image */
-    background-size: cover; /* Cover the entire element with the background image */
-    background-position: center; /* Center the background image */
-    width: 100vw; /* Full width of the viewport */
-    height: 100vh; /* Full height of the viewport */
+}
+.background-container {
+  background-image: url("../../../../../../assets/images/background.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
 }
