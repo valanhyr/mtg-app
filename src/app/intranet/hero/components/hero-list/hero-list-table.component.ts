@@ -79,4 +79,5 @@ export class HeroListTableComponent implements OnInit, AfterViewInit {
       );
     }
   }
+  
 }
