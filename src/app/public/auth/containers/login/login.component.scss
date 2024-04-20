@@ -1,0 +1,28 @@
+.login {
+    border-radius: 20px;
+    position: fixed;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 25%;
+    min-width: 300px;
+    background-color: #f0f0f0;
+    animation: slideDown 2s forwards;
+  }
+  
+  @keyframes slideDown {
+    from {
+      top: -100%;
+    }
+    to {
+      top: 10%;
+    }
+  }
+  .background-container {
+    background-image: url("../../../../../assets/images/background.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+  }
+  
