@@ -12,7 +12,7 @@ pipeline {
 
                 
                 // Build your project using npm
-                sh 'npm run build -- --prod'
+                sh 'npm run build '
             }
         }
         
