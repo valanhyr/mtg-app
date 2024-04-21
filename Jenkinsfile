@@ -19,7 +19,8 @@ pipeline {
         stage('Dockerize') {
             steps {
                 // Build Docker image
-                sh 'docker build -t mtg-app:latest .'
+                sh '/usr/bin/docker build -t mtg-app:latest .'
+
             }
         }
         
