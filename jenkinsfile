@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Build') {
+            steps {
+                // Clone the repository
+                git 'https://github.com/valanhyr/super-hero-app.git'
+                
+                // Build your project
+                sh 'mvn clean package'
+            }
+        }
+        
+        stage('Dockerize') {
+            steps {
+                // Build Docker image
+                sh 'docker build -t mtg-app:latest .'
+            }
+        }
+        
+        stage('Push to Registry') {
+            steps {
+                // Push Docker image to a registry
+                withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'admin', passwordVariable: 'hercules1818P')]) {
+                    sh 'docker login -u $admin -p $hercules1818P'
+                    sh 'docker push your-docker-username/mtg-app:latest'
+                }
+            }
+        }
+    }
+}
