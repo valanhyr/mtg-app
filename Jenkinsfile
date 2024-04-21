@@ -8,7 +8,8 @@ pipeline {
                 git 'https://github.com/valanhyr/super-hero-app.git'
                 
                 // Install npm dependencies
-                sh 'npm install'
+                sh '/usr/bin/npm install'
+
                 
                 // Build your project using npm
                 sh 'npm run build -- --prod'
