@@ -1,0 +1,19 @@
+<div class="carousel">
+    <h2 class="title">{{title}}</h2>
+    <div class="carousel-inner">
+      <div class="carousel-item" *ngFor="let item of items; let i = index" [class.active]="i === currentIndex">
+        <ng-container *ngIf="item.type === 'image'; else videoTemplate">
+          <img [src]="item.url" alt="Carousel Image" class="d-block w-100">
+        </ng-container>
+        <ng-template #videoTemplate>
+          <video [src]="item.url" class="d-block w-100" autoplay muted loop></video>
+        </ng-template>
+      </div>
+    </div>
+    <a class="carousel-control-prev" (click)="prevItem()">&#10094;</a>
+    <a class="carousel-control-next" (click)="nextItem()">&#10095;</a>
+    <div class="carousel-indicators">
+      <span *ngFor="let item of items; let i = index" [class.active]="i === currentIndex" (click)="goToItem(i)"></span>
+    </div>
+</div>
+  

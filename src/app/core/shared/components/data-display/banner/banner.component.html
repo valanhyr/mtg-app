@@ -1,0 +1,9 @@
+<div class="banner">
+    <ng-container *ngIf="isVideo(); else imageTemplate">
+      <video class="banner-media" [src]="mediaUrl" autoplay muted loop></video>
+    </ng-container>
+    <ng-template #imageTemplate>
+      <img class="banner-media" [src]="mediaUrl" [alt]="altText">
+    </ng-template>
+</div>
+  

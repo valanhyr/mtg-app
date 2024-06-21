@@ -1,0 +1,46 @@
+<div class="rank-component">
+    <h1>{{ title }}</h1>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{ tournament.name }}</mat-card-title>
+        <mat-card-subtitle>{{ tournament.description }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Start Date: {{ tournament.startDate | date }}</p>
+        <p *ngIf="tournament.endDate">End Date: {{ tournament.endDate | date }}</p>
+        <p>Players: {{ tournament.minPlayers }} - {{ tournament.maxPlayers }}</p>
+        <p>Current Round: {{ tournament.currentRound }} of {{ tournament.rounds }}</p>
+        <div *ngIf="tournament.rules.length">
+          <h3>Rules:</h3>
+          <ul>
+            <li *ngFor="let rule of tournament.rules">
+              <strong>{{ rule.title }}</strong>: {{ rule.explanation }}
+            </li>
+          </ul>
+        </div>
+        <div *ngIf="tournament.rank.length">
+          <h3>Rankings:</h3>
+          <table class="rank-table">
+            <thead>
+              <tr>
+                <th>Usuario</th>
+                <th>Mazo</th>
+                <th>puntos</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let rank of tournament.rank" class="rank-item">
+                <td>{{ rank.userId }}</td>
+                <td>{{ rank.deckId }}</td>
+                <td>{{ totalPoints(rank.results) }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" [routerLink]="['.private/tournament/:{{tournament.id}}']">Ver torneo</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  

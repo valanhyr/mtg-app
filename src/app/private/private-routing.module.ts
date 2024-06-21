@@ -7,6 +7,8 @@ const routes: Routes = [
   { path: '', component: PrivateComponent, children: [
     { path: '', redirectTo: 'main', pathMatch: 'full'},
     { path: 'main', component: MainBoardComponent},
+    { path: 'tournament/:id', loadChildren: () => import('./tournament/tournament-main/tournament-main.component')
+      .then(m => m.TournamentMainComponent) }
 ]}
 ];
 

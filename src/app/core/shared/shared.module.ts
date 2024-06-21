@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SpinnerComponent } from './components/spinner/spinner.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { NavbarComponent } from './components/navigation/navbar/navbar.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
@@ -20,6 +20,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { LoginBoxComponent } from '../../public/auth/components/login-box/login-box.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { RankComponent } from './components/data-display/rank/rank.component';
+import { BannerComponent } from './components/data-display/banner/banner.component';
+import { CarrouselComponent } from './components/data-display/carrousel/carrousel.component';
+import { TournamentsInfoComponent } from './components/data-display/tournaments-info/tournaments-info.component';
 
 
 
@@ -28,7 +32,11 @@ import { FooterComponent } from './components/footer/footer.component';
     SpinnerComponent,
     NavbarComponent,
     LoginBoxComponent,
-    FooterComponent
+    FooterComponent,
+    BannerComponent,
+    CarrouselComponent,
+    RankComponent,
+    TournamentsInfoComponent
   ],
   imports: [
     CommonModule,
@@ -67,6 +75,9 @@ import { FooterComponent } from './components/footer/footer.component';
     NavbarComponent,
     LoginBoxComponent,
     FooterComponent,
+    BannerComponent,
+    CarrouselComponent,
+    RankComponent,
 
     MatCardModule,
     MatInputModule,
@@ -78,6 +89,7 @@ import { FooterComponent } from './components/footer/footer.component';
     MatTableModule,
     MatIconModule,
     MatToolbarModule,
+    TournamentsInfoComponent
   ],
   providers:[
     { provide: HTTP_INTERCEPTORS, useClass: AddTokenInterceptor, multi: true }

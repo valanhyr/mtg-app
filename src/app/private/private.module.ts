@@ -5,14 +5,16 @@ import { PrivateRoutingModule } from './private-routing.module';
 import { PrivateComponent } from './private.component';
 import { SharedModule } from '../core/shared/shared.module';
 import { MainBoardComponent } from './main-board/main-board.component';
-import { SliderComponent } from './slider/slider.component';
+import { SliderComponent } from '../core/shared/components/slider/slider.component';
+import { TournamentMainComponent } from './tournament/tournament-main/tournament-main.component';
 
 
 @NgModule({
   declarations: [
     PrivateComponent,
     MainBoardComponent,
-    SliderComponent
+    SliderComponent,
+    TournamentMainComponent
   ],
   imports: [
     CommonModule,

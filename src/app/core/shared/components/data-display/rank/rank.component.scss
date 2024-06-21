@@ -1,0 +1,55 @@
+.rank-component {
+    padding: 16px;
+    max-width: 360px;
+  }
+  
+  .mat-card {
+    margin-bottom: 16px;
+    max-width: 360px;
+  }
+  
+  .rank-item {
+    margin-bottom: 8px;
+    
+  }
+  
+  .rank-item mat-card {
+    background-color: #e0e0e0;
+    padding: 8px;
+    border-radius: 4px;
+  }
+  
+  .rank-item p {
+    margin: 0 0 4px;
+  }
+  
+  .rank-item ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+  .rank-table {
+    width: 100%;
+    max-width: 800px; /* Example of maximum width */
+    border-collapse: collapse;
+    margin: 0 auto; /* Center the table horizontally */
+  }
+  
+  .rank-table th, .rank-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .rank-table th {
+    background-color: #f2f2f2;
+  }
+  
+  @media (max-width: 600px) {
+    .rank-table {
+      width: 100%;
+      max-width: 100%; /* Full width on smaller screens */
+    }
+  }
+  
+  

@@ -1,0 +1,28 @@
+:host {
+    display: block;
+    max-height: 100%; /* Inherit max-height from parent */
+    overflow: hidden; /* Ensure content fits within max-height */
+  }
+  
+  .banner-media {
+    width: 100%;
+    height: auto;
+    max-height: 100%; /* Ensure media respects the parent’s height */
+    object-fit: cover; /* Cover the container while maintaining aspect ratio */
+  }
+  
+  video {
+    width: 100%;
+    height: auto;
+    max-height: 100%; /* Ensure video respects the parent’s height */
+    object-fit: cover; /* Cover the container while maintaining aspect ratio */
+  }
+  
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 100%; /* Ensure image respects the parent’s height */
+    object-fit: cover; /* Cover the container while maintaining aspect ratio */
+  }
+  

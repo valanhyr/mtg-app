@@ -1,0 +1,36 @@
+.tournaments-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px; /* Adjust spacing between cards */
+}
+
+.tournament-card {
+  flex: 1 0 calc(25% - 16px); /* Four cards per row on desktop */
+  margin-bottom: 16px; /* Adjust spacing between rows */
+
+  @media (max-width: 1199.98px) {
+    flex: 1 0 calc(33.33% - 16px); /* Three cards per row on tablet */
+  }
+
+  @media (max-width: 767.98px) {
+    flex: 1 0 calc(100% - 16px); /* One card per row on mobile */
+  }
+}
+
+.view-more {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.view-more a {
+  color: blue;
+  text-decoration: none;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 32px;
+}

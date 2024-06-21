@@ -1,5 +1,21 @@
-<div class="slider">
-    <app-slider></app-slider>    
-</div>
-<p>main-board works!</p>
-
+<ng-container *ngIf="imageBanner">
+  <app-banner
+    class="banner"
+    mediaUrl="{{ imageBanner }}"
+    altText="Sample Image"
+    autoplay
+    muted
+    loop
+  ></app-banner>
+</ng-container>
+<ng-container *ngIf="tournaments">
+  <app-tournaments-info 
+    title="Torneos en curso"
+    [tournaments]="tournaments"
+  ></app-tournaments-info>
+</ng-container>
+<app-carrousel
+  title="Próximos eventos"
+  [items]="carouselItems"
+  [interval]="5000"
+></app-carrousel>

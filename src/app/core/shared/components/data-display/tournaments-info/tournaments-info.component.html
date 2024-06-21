@@ -1,0 +1,11 @@
+<h2 class="title">{{title}}</h2>
+<div class="tournaments-container">
+  <div class="tournament-card" *ngFor="let tournament of visibleTournaments; let i = index">
+    <app-rank [tournament]="tournament"></app-rank>
+  </div>
+</div>
+
+<!-- Show "View more" link if there are more tournaments -->
+<div class="view-more" *ngIf="tournaments.length > visibleTournaments.length">
+  <a href="#">View {{ tournaments.length - visibleTournaments.length }} more</a>
+</div>
