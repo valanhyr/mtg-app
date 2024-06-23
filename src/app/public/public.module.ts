@@ -6,7 +6,7 @@ import { PublicComponent } from './public.component';
 import { LoginComponent } from './auth/containers/login/login.component';
 import { SharedModule } from '../core/shared/shared.module';
 import { ToastrService } from 'ngx-toastr';
-import { AuthService } from '../core/services/auth.service';
+import { AuthService } from '../core/api/auth.service';
 
 
 @NgModule({

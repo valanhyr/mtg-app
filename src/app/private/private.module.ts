@@ -7,6 +7,7 @@ import { SharedModule } from '../core/shared/shared.module';
 import { MainBoardComponent } from './main-board/main-board.component';
 import { SliderComponent } from '../core/shared/components/slider/slider.component';
 import { TournamentMainComponent } from './tournament/tournament-main/tournament-main.component';
+import { CardsComponent } from './cards/cards.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { TournamentMainComponent } from './tournament/tournament-main/tournament
     PrivateComponent,
     MainBoardComponent,
     SliderComponent,
-    TournamentMainComponent
+    TournamentMainComponent,
+    CardsComponent
   ],
   imports: [
     CommonModule,

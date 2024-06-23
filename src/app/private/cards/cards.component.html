@@ -1,0 +1,43 @@
+<!-- card-list.component.html -->
+<!--<div>
+    <input type="text" [(ngModel)]="name" placeholder="Search for cards...">
+    <button (click)="searchCards()">cards</button>
+
+  </div>
+  <div *ngIf="card">
+
+        <img class="card-image"[src]="card.image_uris.normal" alt="{{ card.name }}">
+        <p>{{ card.name }}</p>
+        <p>Type: {{ card.type_line }}</p>
+        <p>Mana Cost: {{ card.mana_cost }}</p>
+        <p>Rarity: {{ card.rarity }}</p>
+        <p>Set: {{ card.set_name }}</p>
+
+  </div>-->
+<!-- cards.component.html -->
+ <h1>Importacion de mazos</h1>
+<!-- cards.component.html -->
+<div class="search-container">
+  <textarea [(ngModel)]="nameList" placeholder="Pega los nombre de cartas aquí, uno por linea..." rows="10"></textarea>
+  <button (click)="searchCardsByNames()">Importar listado</button>
+</div>
+
+<div class="cards-container" *ngIf="getKeys(groupedCards).length > 0">
+  <h2>Search Results</h2>
+  <div *ngFor="let typeLine of getKeys(groupedCards)">
+    <h3>{{ typeLine }}</h3>
+    <div class="cards-grid">
+      <div class="card" *ngFor="let card of groupedCards[typeLine]">
+        <h4>{{ card.name }}</h4>
+        <img [src]="card.image_uris?.normal" alt="{{ card.name }}" *ngIf="card.image_uris" />
+        <p>{{ card.type_line }}</p>
+        <p>{{ card.set_name }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
