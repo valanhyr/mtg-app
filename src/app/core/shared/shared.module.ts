@@ -24,6 +24,7 @@ import { RankComponent } from './components/data-display/rank/rank.component';
 import { BannerComponent } from './components/data-display/banner/banner.component';
 import { CarrouselComponent } from './components/data-display/carrousel/carrousel.component';
 import { TournamentsInfoComponent } from './components/data-display/tournaments-info/tournaments-info.component';
+import { BannerComertialComponent } from './components/banner-comertial/banner-comertial.component';
 
 
 
@@ -36,7 +37,8 @@ import { TournamentsInfoComponent } from './components/data-display/tournaments-
     BannerComponent,
     CarrouselComponent,
     RankComponent,
-    TournamentsInfoComponent
+    TournamentsInfoComponent,
+    BannerComertialComponent
   ],
   imports: [
     CommonModule,
@@ -89,7 +91,8 @@ import { TournamentsInfoComponent } from './components/data-display/tournaments-
     MatTableModule,
     MatIconModule,
     MatToolbarModule,
-    TournamentsInfoComponent
+    TournamentsInfoComponent,
+    BannerComertialComponent
   ],
   providers:[
     { provide: HTTP_INTERCEPTORS, useClass: AddTokenInterceptor, multi: true }

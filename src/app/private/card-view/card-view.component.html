@@ -1,0 +1,24 @@
+<div *ngIf="card" class="card-details">
+    <img [src]="card.image_uris.normal" alt="Card Image">
+    <div class="card-info">
+      <h2>{{ card.name }}</h2>
+      <p>Mana Cost: {{ card.mana_cost }}</p>
+      <p>Type: {{ card.type_line }}</p>
+      <p>Oracle Text: {{ card.oracle_text }}</p>
+      <p *ngIf="card.power !== '*'">Power/Toughness: {{ card.power }}/{{ card.toughness }}</p>
+      <div class="legalities">
+        <h3>Legalities:</h3>
+        <ul>
+          <li *ngFor="let legality of card.legalities | keyvalue">
+            {{ legality.key }}: {{ legality.value }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="!card" class="loading">
+    <mat-spinner diameter="30"></mat-spinner>
+    <p>Loading card details...</p>
+  </div>
+  

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CardsService } from '../../core/scryfall/cards.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cards',
@@ -7,13 +8,17 @@ import { CardsService } from '../../core/scryfall/cards.service';
   styleUrls: ['./cards.component.scss']
 })
 export class CardsComponent {
-  //cards: any[] = [];
+  cards: any[] = [];
   groupedCards: { [key: string]: any[] } = {};
+  errorCards: any[] = [];
   nameList: string = '';
   card: any;
   name: string = '';
 
-  constructor(private cardService: CardsService) {}
+  constructor(
+    private router: Router,
+    private cardService: CardsService
+  ) {}
 
   searchCards() {
     this.cardService.getCardByName(this.name).subscribe(
@@ -30,25 +35,25 @@ export class CardsComponent {
   searchCardsByNames() {
     const names = this.nameList.split('\n').map(name => name.trim()).filter(name => name);
 
-    const cards:any = []; // Temporary array to hold all cards before grouping and sorting
     let completedRequests = 0; // Counter to track completed requests
 
     names.forEach(name => {
       this.cardService.getCardByName(name).subscribe(
         (data) => {
           if (data) {
-            cards.push(data); // Assuming the response is a single card
+            this.cards.push(data); // Assuming the response is a single card
           }
           completedRequests++;
           if (completedRequests === names.length) {
-            this.groupAndSortCards(cards);
+            this.groupAndSortCards(this.cards);
           }
         },
         (error) => {
           console.error('Error fetching card:', error);
+          this.errorCards.push(name );
           completedRequests++;
           if (completedRequests === names.length) {
-            this.groupAndSortCards(cards);
+            this.groupAndSortCards(this.cards);
           }
         }
       );
@@ -79,5 +84,8 @@ export class CardsComponent {
 
   getKeys(obj: any): string[] {
     return Object.keys(obj);
+  }
+  goToCardReview(cardId: string): void {
+    this.router.navigate(['/private/card-view', cardId]);
   }
 }

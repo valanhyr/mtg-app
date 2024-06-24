@@ -21,15 +21,24 @@
   <textarea [(ngModel)]="nameList" placeholder="Pega los nombre de cartas aquí, uno por linea..." rows="10"></textarea>
   <button (click)="searchCardsByNames()">Importar listado</button>
 </div>
-
+<ng-container *ngIf="errorCards.length">
+  <mat-card class="warning">
+    <mat-card-header>
+      <mat-card-title>Error</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p *ngFor="let item of errorCards">{{ item }}</p>
+    </mat-card-content>
+  </mat-card>
+</ng-container>
 <div class="cards-container" *ngIf="getKeys(groupedCards).length > 0">
-  <h2>Search Results</h2>
+<h2>Resultados de la búsqueda <span *ngIf="cards.length">{{ cards.length }}</span></h2>
   <div *ngFor="let typeLine of getKeys(groupedCards)">
     <h3>{{ typeLine }}</h3>
     <div class="cards-grid">
       <div class="card" *ngFor="let card of groupedCards[typeLine]">
         <h4>{{ card.name }}</h4>
-        <img [src]="card.image_uris?.normal" alt="{{ card.name }}" *ngIf="card.image_uris" />
+        <img [src]="card.image_uris?.normal" alt="{{ card.name }}" *ngIf="card.image_uris" (click)="goToCardReview(card.id)"/>
         <p>{{ card.type_line }}</p>
         <p>{{ card.set_name }}</p>
       </div>
