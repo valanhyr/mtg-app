@@ -36,6 +36,7 @@ export interface MagicCard {
     legalities: {
       [format: string]: string; // Dynamic object where key is format name and value is legality status
     };
+    loyalty: string;
     mana_cost: string;
     mtgo_id: number;
     multiverse_ids: number[]; // Array of multiverse IDs

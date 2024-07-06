@@ -37,10 +37,7 @@
     <h3>{{ typeLine }}</h3>
     <div class="cards-grid">
       <div class="card" *ngFor="let card of groupedCards[typeLine]">
-        <h4>{{ card.name }}</h4>
         <img [src]="card.image_uris?.normal" alt="{{ card.name }}" *ngIf="card.image_uris" (click)="goToCardReview(card.id)"/>
-        <p>{{ card.type_line }}</p>
-        <p>{{ card.set_name }}</p>
       </div>
     </div>
   </div>

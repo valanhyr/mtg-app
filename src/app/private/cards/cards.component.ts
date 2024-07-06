@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CardsService } from '../../core/scryfall/cards.service';
+import { CardsService } from '../../core/scryfall/api/cards.service';
 import { Router } from '@angular/router';
 
 @Component({

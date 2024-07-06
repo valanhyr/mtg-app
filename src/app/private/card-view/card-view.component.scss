@@ -1,27 +1,85 @@
+.o-container {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(300px, 1fr)
+  ); /* Adjust minmax values as needed */
+  gap: 20px; /* Adjust gap between items */
+}
+@media screen and (max-width: 600px) {
+  .o-container {
+    grid-template-columns: 1fr; /* Stack items vertically on smaller screens */
+  }
+}
 .card-details {
-    display: flex;
-    align-items: flex-start;
-    padding: 20px;
-    max-width: 800px;
-  }
-  
-  .card-details img {
-    max-width: 300px; /* Adjust image size as needed */
-    margin-right: 20px; /* Adjust spacing between image and card info */
-  }
-  
-  .card-info {
-    flex: 1;
-  }
-  
-  .legalities {
-    margin-top: 20px;
-  }
-  
-  .loading {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 200px; /* Adjust height as needed */
-  }
-  
+  display: flex;
+  align-items: flex-start;
+}
+
+.card-details img {
+  max-width: 300px; /* Adjust image size as needed */
+  margin-right: 20px; /* Adjust spacing between image and card info */
+}
+
+.card-info {
+  flex: 1;
+  max-width: 500px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px; /* Adjust height as needed */
+}
+.legalities {
+  display: flex;
+  flex-direction: column;
+  font-size: smaller;
+}
+
+.legalities-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.legality-item {
+  display: flex;
+  align-items: center;
+  margin: 5px;
+  flex: 1 1 calc(50% - 10px); /* two columns */
+}
+
+.badge {
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1px 10px;
+  border-radius: 8px;
+  margin-right: 10px;
+  color: white;
+}
+
+.badge-legal {
+  background-color: green;
+}
+
+.badge-not-legal {
+  background-color: grey;
+}
+
+.legality-key {
+  flex-grow: 1;
+}
+.mana-symbol {
+  width: 15px; /* Adjust size as needed */
+  height: 15px;
+  margin: 1px !important;
+  vertical-align: middle;
+}
+.card-text-oracle {
+  margin: 4px !important;
+}
