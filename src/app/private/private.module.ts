@@ -9,6 +9,8 @@ import { SliderComponent } from '../core/shared/components/slider/slider.compone
 import { TournamentMainComponent } from './tournament/tournament-main/tournament-main.component';
 import { CardsComponent } from './cards/cards.component';
 import { CardViewComponent } from './card-view/card-view.component';
+import { DeckManageComponent } from './decks/deck-manage/deck-manage.component';
+import { CardListComponent } from './decks/deck-manage/components/card-list/card-list.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { CardViewComponent } from './card-view/card-view.component';
     SliderComponent,
     TournamentMainComponent,
     CardsComponent,
-    CardViewComponent
+    CardViewComponent,
+    DeckManageComponent,
+    CardListComponent
   ],
   imports: [
     CommonModule,

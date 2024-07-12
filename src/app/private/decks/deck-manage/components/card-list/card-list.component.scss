@@ -1,0 +1,28 @@
+.card-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .card {
+    background: #333333;
+    color: white;
+    border: 1px solid #ddd;
+
+  }
+  
+  .card h3 {
+    margin-top: 0;
+  }
+  
+  .card p {
+    margin-left: 4px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+  .mana-symbol {
+    width: 15px; /* Adjust size as needed */
+    height: 15px;
+    margin: 1px !important;
+    vertical-align: middle;
+  }
+  

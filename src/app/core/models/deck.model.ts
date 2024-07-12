@@ -27,7 +27,7 @@ enum DeckType {
   HISTORIC,
   TWO_HEADED_GIANT,
 }
-interface cardList{
+export interface cardList{
     cardId: string;
     quantity: number;
     isCommander: boolean;

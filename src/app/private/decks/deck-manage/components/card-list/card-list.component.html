@@ -1,0 +1,18 @@
+<p>card-list works!</p>
+<div class="card-list">
+  <div class="card" *ngFor="let card of auxCards">
+    <p>
+        <span> {{ getCardQuantity(card.id) }}</span>
+      <span>{{ card.name }}</span>
+      <span *ngIf="showManaCost">
+        <ng-container *ngFor="let symbol of getManaCostSymbols(card.mana_cost)">
+          <abbr [title]="symbol.description">
+            <img [src]="symbol.url" alt="Mana symbol" class="mana-symbol" />
+          </abbr>
+        </ng-container>
+      </span>
+    </p>
+  </div>
+</div>
+
+<button (click)="printForm()">form</button>
